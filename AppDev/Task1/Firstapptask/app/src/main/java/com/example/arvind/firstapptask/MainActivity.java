@@ -1,6 +1,5 @@
 package com.example.arvind.firstapptask;
 
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,15 +7,31 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView counterText;
-    private Button button, resetButton;
-    private int x = 0, colorId = 0, flag = 0;//x is the counter value.
-    private ColorDrawable viewColor;
+    private TextView counterText;//a text field to display the countervalue.
+    private Button button, resetButton;//button is used to increase the counter value.resetButton is used to reset the counter.
+    private int x = 0;//x is the counter value.
+    private String word;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         onPro();
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("counter", x);
+        word=counterText.getText().toString();
+        outState.putString("text",word);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        x=savedInstanceState.getInt("counter");
+        word=savedInstanceState.getString("text");
+        counterText.setText(word);
     }
 
     public void onPro() {
