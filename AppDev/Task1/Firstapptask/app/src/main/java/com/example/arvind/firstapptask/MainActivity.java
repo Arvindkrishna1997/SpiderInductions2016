@@ -15,27 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        onPro();
-    }
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("counter", x);
-        word=counterText.getText().toString();
-        outState.putString("text",word);
-
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        x=savedInstanceState.getInt("counter");
-        word=savedInstanceState.getString("text");
-        counterText.setText(word);
-    }
-
-    public void onPro() {
-
         counterText = (TextView) findViewById(R.id.text);
         button = (Button) findViewById(R.id.button);
         resetButton = (Button) findViewById(R.id.resetbutton);
@@ -54,6 +33,22 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("counter", x);
+        word=counterText.getText().toString();
+        outState.putString("text",word);
 
     }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        x=savedInstanceState.getInt("counter");
+        word=savedInstanceState.getString("text");
+        counterText.setText(word);
+    }
+
 }
