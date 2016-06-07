@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MySpiderApp2</string>
+    <string-array name="dept_names">
+        <item>CSE</item>
+        <item>ECE</item>
+        <item>EEE</item>
+        <item>MECH</item>
+        <item>ICE</item>
+        <item>CIVIL</item>
+        <item>META</item>
+        <item>PROD</item>
+        <item>CHE</item>
+    </string-array>
+</resources>
