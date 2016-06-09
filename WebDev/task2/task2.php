@@ -21,5 +21,7 @@
 <a href="page2.php"><button style="text-align:center">Add Student</button></a>
 &nbsp;&nbsp;&nbsp;
 <a href="page3.php"><button>View Student</button></a>
+&nbsp;&nbsp;&nbsp;
+<a href="page6.php"><button>View all students</button></a>
 </body>
 </html>
