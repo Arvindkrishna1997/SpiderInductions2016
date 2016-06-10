@@ -31,9 +31,9 @@ $sql = "SELECT * FROM students";
 $result = $conn->query($sql);
 
 echo "<table>"; // start a table tag in the HTML
-echo "<tr><th>Passcode</th><th>Name</th><th>rollno</th><th>department</th><th>email</th><th>PhysicalAddress</th><th>Aboutme</th></tr>";
+echo "<tr><th>Name</th><th>rollno</th><th>department</th><th>email</th><th>PhysicalAddress</th><th>Aboutme</th></tr>";
 while($row = $result->fetch_assoc()){   //Creates a loop to loop through results
-echo "<tr><td>" . $row["passcode"]."</td><td>".$row['name'] . "</td><td>" . $row['rollno'] . "</td><td>".$row["dept"]."</td><td>".$row["email"]."</td><td>".$row["physicaladdress"]."</td><td>".$row["aboutme"]."</td></tr>";  //$row['index'] the index here is a field name
+echo "<tr><td>".$row['name'] . "</td><td>" . $row['rollno'] . "</td><td>".$row["dept"]."</td><td>".$row["email"]."</td><td>".$row["physicaladdress"]."</td><td>".$row["aboutme"]."</td></tr>";  //$row['index'] the index here is a field name
 }
 
 echo "</table>"; //Close the table in HTML
