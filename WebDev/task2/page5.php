@@ -8,11 +8,7 @@ session_start();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Edit Details</title>
-<style>
-.error{
-	color:#F33;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="task2css.css">
 </head>
 <body>
 
@@ -101,7 +97,7 @@ aboutme='$about_me',
 dept='$dept'
 WHERE passcode='$passcode'";
 if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
+    echo "The old record below has been updated to the newly entered one successfully";
 } else {
     echo "Error updating record: " . $conn->error;
 }
@@ -125,10 +121,11 @@ function test_input($data) {
 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 passcode: <input type="text" name="passcode" value="<?php echo $passcode;?>" >
 <span class="error">*<?php echo $passcodeErr;?></span>
-Name: <input type="text" name="name" value="<?php echo $name;?>" >
+<br/><br/><pre style="display:inline">  </pre>
+Name: <input type="text" name="name" value="<?php echo $row["name"];?>" >
  <span class="error">* <?php echo $nameErr;?></span>
 <br/><br/>
-Department:<select name="dept" value="<?php echo $dept;?>">
+Department:<select name="dept" value="<?php echo $row["dept"];?>">
  <option value="cse">CSE</option>
  <option value="eee">EEE</option>
  <option value="ece">ECE</option>
@@ -136,14 +133,15 @@ Department:<select name="dept" value="<?php echo $dept;?>">
  <option value="mech">MECH</option>
  <option value="prod">PROD</option>
 </select>
-<br/><br/>
-E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+<br/><br/><pre style="display:inline"> </pre>
+E-mail: <input type="text" name="email" value="<?php echo $row["email"];?>">
 <span class="error">* <?php echo $emailErr;?></span>
-<br/><br/>
-Physical Address:<br /> <textarea name="physicaladdress" rows="5" cols="40" ><?php echo $physical_address;?></textarea> 
+<br/><br/><pre style="display:inline">         </pre>
+Physical Address:<textarea name="physicaladdress" rows="5" cols="40" ><?php echo $row["physicaladdress"];?></textarea> 
 <span class="error">* <?php echo $physical_addressErr;?></span>
 <br/><br/>
-About me: <br/> <textarea name="aboutme" rows="5" cols="40" ><?php echo $about_me;?></textarea>
+<pre style="display:inline">              </pre>
+About me:  <textarea name="aboutme" rows="5" cols="40" ><?php echo $row["aboutme"];?></textarea>
 <br/>
 <input type="submit" name="submit" value="Submit"> 
 <br/>

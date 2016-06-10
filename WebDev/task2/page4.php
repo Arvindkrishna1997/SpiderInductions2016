@@ -9,6 +9,7 @@ session_start();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>search results</title>
+<link rel="stylesheet" type="text/css" href="task2css.css">
 </head>
 <body>
 
@@ -27,24 +28,27 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM students";
 $result = $conn->query($sql);
-
+$flag=0;
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         if($row["rollno"]===$_GET["rollno"])
 	   {// echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]."-reg_date: ".$row["reg_date"] ."<br>";
-           	   echo "your details have been found <br/>";
-			   echo "Name: ".$row["name"]."<br/>";
-               echo "rollno: ".$row["rollno"]."<br/>";
-			   echo "email: ".$row["email"]."<br/>";
-			   echo "department: ".$row["dept"]."<br/>";
-			   echo "physical Address: ".$row["physicaladdress"]."<br/>";
-			   echo "About you: ".$row["aboutme"]."<br/>";
+           	   echo "Your details have been found <br/><br/><br/><br/>";
+			   echo "Name: ".$row["name"]."<br/><br/>";
+               echo "rollno: ".$row["rollno"]."<br/><br/>";
+			   echo "email: ".$row["email"]."<br/><br/>";
+			   echo "department: ".$row["dept"]."<br/><br/>";
+			   echo "physical Address: ".$row["physicaladdress"]."<br/><br/>";
+			   echo "About you: ".$row["aboutme"]."<br/><br/>";
+			   $flag=1;
 			   break;
 	   }
     }
-} else {
-    echo "0 results";
+} 
+
+if($flag===0) {
+    echo "roll number not found.Go back to previous page.";
 }
 $conn->close();
 ?>
@@ -54,7 +58,7 @@ $_SESSION["rollno"] = $row["rollno"];
 //echo "Session variables are set.";
 ?>
 <form method="get" action="page5.php">
-Rollno:<input type="text" name="rollno" value="<?php echo $row["rollno"];?>"  >
+Rollno:<input type="text" name="rollno" value="<?php echo $row["rollno"];?>" disabled="disabled" >
 <br/>
 <input type="submit" name="Edit" value="Edit">
 </form>

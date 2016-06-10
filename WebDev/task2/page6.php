@@ -3,15 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>all students</title>
-<style>
-table, th, td {
-    border: 1px solid black;
-	 border-collapse: collapse;
-}
-th, td {
-    padding: 15px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="task2css.css">
 </head>
 
 <body>

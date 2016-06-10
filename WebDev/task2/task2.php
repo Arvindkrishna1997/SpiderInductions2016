@@ -3,14 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Student Database</title>
-<style>
-.topic{
-	text-align:center;
-	font-weight:400;
-	font-family:sans-serif;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="task2css.css">
 </head>
 <body>
 <h1 class="topic">Student Database</h1>

@@ -3,14 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Page 2</title>
-<style>
-body{
-	text-align:justify;
-}
-.error{
-	color:#F33;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="task2css.css">
 </head>
 
 <body>
@@ -110,11 +103,16 @@ Department:<select name="dept" value="<?php echo $dept;?>">
 E-mail: <input type="text" name="email" value="<?php echo $email;?>">
 <span class="error">* <?php echo $emailErr;?></span>
 <br/><br/>
-Physical Address:<br /> <textarea name="physicaladdress" rows="5" cols="40" value="<?php echo $physical_address;?>"><?php echo $physical_address;?></textarea> 
+<pre style="display:inline">        </pre>
+Physical Address:<textarea name="physicaladdress" rows="5" cols="40" value="<?php echo $physical_address;?>"><?php echo $physical_address;?></textarea> 
 <span class="error">* <?php echo $physical_addressErr;?></span>
 <br/><br/>
-About me: <br/> <textarea name="aboutme" rows="5" cols="40"><?php echo $about_me;?></textarea>
-<input type="submit" name="submit" value="Submit"> 
+<pre style="display:inline">              </pre>
+About me:<textarea name="aboutme" rows="5" cols="40"><?php echo $about_me;?></textarea>
+<br/>
+<br/>
+<input type="submit" name="submit" value="Submit">
+ 
 <br/>
 </form>
 </body>

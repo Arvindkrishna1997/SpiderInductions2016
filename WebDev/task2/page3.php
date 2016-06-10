@@ -3,10 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Student View</title>
+<link rel="stylesheet" type="text/css" href="task2css.css">
 </head>
 <body>
 
-<h1>enter the student roll no</h1>
+<h2>enter the student roll no</h2>
 <form method="get" action="page4.php">
 Rollno:<input type="text" name="rollno"  >
 <br/>
