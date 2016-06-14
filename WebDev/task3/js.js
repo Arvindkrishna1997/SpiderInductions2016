@@ -93,9 +93,11 @@ function updategame() {
 
     }
     if((ball.x+ball.width>=rightPaddle.x&&(ball.x+ball.width<gameArea.canvas.width))&&(rightPaddle.y<ball.y)&&(rightPaddle.y+rightPaddle.height>ball.y))
-    {   ball.dy=rightPaddle.dy;
-        ball.dy/=3;
-        ball.dy*=2;
+    {  // ball.dy=rightPaddle.dy;
+        if(rightPaddle.dy!=0)
+           ball.dy=rightPaddle.dy/3;
+        //ball.dy=-1*ball.dy;
+
         if(ball.dx>0)
             ball.dx=-1*ball.dx;
         rightPaddle.y=Math.floor(Math.random()*(gameArea.canvas.height-rightPaddle.height));
@@ -107,9 +109,10 @@ function updategame() {
         ballside=false;
     }
     if((ball.x-ball.width<=(leftPaddle.x+leftPaddle.width)&&(ball.x-ball.width>0))&&(leftPaddle.y<ball.y)&&(leftPaddle.y+leftPaddle.height>ball.y))
-    { ball.dy=leftPaddle.dy;
-        ball.dy/=3;
-        ball.dy*=2;
+    {// ball.dy=leftPaddle.dy;
+        if(leftPaddle.dy!=0)
+            ball.dy=leftPaddle.dy/3;
+        //ball.dy=-1*ball.dy;
         if(ball.dx<0)
             ball.dx=-1*ball.dx;
         rightPaddle.y=Math.floor(Math.random()*(gameArea.canvas.height-rightPaddle.height));
@@ -123,23 +126,24 @@ function updategame() {
         ball.dy=(-1)*ball.dy;
     if((ball.x-ball.width<=0)||(ball.x+ball.width>=gameArea.canvas.width))
     {   if(playerleft>playerright&&no==0)
-        alert( "player1 wins!!!");
+        document.getElementById("leftscore").innerHTML="Player1 wins!!!";
     else if(playerleft<playerright&&no==0)
-        alert("player2 wins!!!");
+        document.getElementById("rightscore").innerHTML="Player2 wins!!!";
     else if(no==0)
-        alert("match draw:(");
+    {document.getElementById("leftscore").innerHTML="Match Draw:(";
+        document.getElementById("rightscore").innerHTML="";}
         no=1;
         playerleft=playerright=0;
-        document.getElementById("leftscore").innerHTML="Player1 :0";
-        document.getElementById("rightscore").innerHTML="Player2 :0";
-        if(playerleft>5||playerright>5)
-            ball.dx=4;
+
+
         if (gameArea.keys && gameArea.keys[32]) {
             no=0;
             ball.x=500;
-            ball.y=Math.floor(Math.random()*gameArea.canvas.height);
+            ball.y=Math.floor(Math.random()*(200)+100);
             ball.dx=0;
             ball.dy=0;
+            document.getElementById("leftscore").innerHTML="Player1 :0";
+            document.getElementById("rightscore").innerHTML="Player2 :0";
             ball.update();
             setTimeout(function(){
                 if(right==false)
@@ -150,7 +154,8 @@ function updategame() {
         }
 
     }
-
+    if(playerleft>5||playerright>5)
+        ball.dx=4;
     leftPaddle.update();
     rightPaddle.update();
     ball.update();
